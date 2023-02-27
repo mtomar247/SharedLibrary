@@ -11,6 +11,6 @@ def call(String stageName){
 		sh 'mvn -B -DskipTests clean install'
                 }
             }
-       }
-}
+       
+
 
