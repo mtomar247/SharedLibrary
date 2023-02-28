@@ -4,7 +4,11 @@ def call(String stageName){
           echo "M2_HOME = /opt/maven"
 	  echo "This is ${stageName} stage."
   }
-
+ else if ("$stageName"=='Git Clone'){
+        echo "This is ${stageName} stage."
+        sh 'git clone https://github.com/mtomar247/SharedLibrary.git '
+ }
+	
  else if("$stageName"=='Maven Build Test Install') {
 	echo "This is ${stageName} stage."
 	sh 'mvn -B -DskipTests clean package'
