@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboottest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboottest
+  template:
+    metadata:
+      labels:
+        app: springboottest
+    spec:
+      containers:
+        - name: springboot
+          image: 780315893543.dkr.ecr.us-east-1.amazonaws.com/minakshi-ecr:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboottest
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: springboottest
