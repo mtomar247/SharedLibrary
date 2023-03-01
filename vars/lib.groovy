@@ -32,12 +32,12 @@ def call(String stageName){
         sh """docker push 780315893543.dkr.ecr.us-east-1.amazonaws.com/minakshi-ecr"""
 	echo "Image Pushing is success." 
        }    
-else if("$stageName"=='kubernetes deployment') {
-	echo "This is ${stageName} stage.Deployment is in progress...."
-	sh 'aws eks --region us-east-1 update-kubeconfig --name KubernetesCluster'
-        sh 'kubectl apply -f Deployment.yaml'
-	echo "Deployment is success." 
-       }
+//else if("$stageName"=='kubernetes deployment') {
+//	echo "This is ${stageName} stage.Deployment is in progress...."
+//	sh 'aws eks --region us-east-1 update-kubeconfig --name KubernetesCluster'
+  //      sh 'kubectl apply -f Deployment.yaml'
+//	echo "Deployment is success." 
+  //     }
        
 }
 
